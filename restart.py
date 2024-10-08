@@ -2,7 +2,7 @@
 
 import actions
 from log import log
-from getkeys import key_check
+from getkeys import is_key_pressed
 
 # 黑风大王处寻路
 def heifeng_restart():
@@ -31,8 +31,7 @@ def huxianfeng_restart_v1():
     # 等复活到土地庙先
     wait = 25
     for i in range(wait, 0, -1):
-        keys = key_check()
-        if 'B' in keys:
+        if is_key_pressed('B'):
             return
         log('%d秒后复活' % i)
         actions.precise_sleep(1)
@@ -73,8 +72,7 @@ def huxianfeng_restart_v2():
     # 等复活到土地庙先
     wait = 25
     for i in range(wait, 0, -1):
-        keys = key_check()
-        if 'B' in keys:
+        if is_key_pressed('B'):
             return
         log('%d秒后复活' % i)
         actions.precise_sleep(1)
@@ -109,8 +107,7 @@ def yinhu_restart():
     # 等复活到土地庙先
     wait = 18
     for i in range(wait, 0, -1):
-        keys = key_check()
-        if 'B' in keys:
+        if is_key_pressed('B'):
             return
         log('%d秒后复活' % i)
         actions.precise_sleep(1)
@@ -150,8 +147,7 @@ def yinhu_restart_V2():
     # 等复活到土地庙先
     wait = 8
     for i in range(wait, 0, -1):
-        keys = key_check()
-        if 'B' in keys:
+        if is_key_pressed('B'):
             return
         log('%d秒后复活' % i)
         actions.precise_sleep(1)
@@ -177,6 +173,32 @@ def yinhu_restart_V2():
     
     log('ready!')
     actions.run_with_direct(2, 'W')
+    actions.pause()
+
+def youhun_restart():
+     # 等复活到土地庙先
+    wait = 5
+    for i in range(wait, 0, -1):
+        if is_key_pressed('B'):
+            return
+        log('%d秒后复活' % i)
+        actions.precise_sleep(1)
+
+    actions.run_with_direct(3, 'W')
+    actions.precise_sleep(1)
+
+def guangzhi_restart():
+    wait = 18
+    for i in range(wait, 0, -1):
+        if is_key_pressed('B'):
+            return
+        log('%d秒后复活' % i)
+        actions.precise_sleep(1)
+
+    actions.run_with_direct(4, 'W')
+    actions.precise_sleep(4)
+    
+    actions.lock_view()
     actions.pause()
 
 def restart():
