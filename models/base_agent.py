@@ -22,10 +22,15 @@ class BaseAgent(ABC):
 
     @abstractmethod
     def choose_action(self, state):
+        """
+        Choose an action based on the state.
+        Returns:
+            tuple: (action, log_prob)
+        """
         pass
 
     @abstractmethod
-    def store_data(self, state, action, reward, next_state, done):
+    def store_data(self, state, action, reward, next_state, done, log_prob=None):
         pass
 
     @abstractmethod

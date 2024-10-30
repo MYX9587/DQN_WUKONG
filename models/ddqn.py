@@ -68,9 +68,9 @@ class DDQN(BaseAgent):
                 q_value = self.policy_net(state_image, context_features)
                 action = q_value.max(1)[1].item()
         self.epsilon = max(self.epsilon - self.epsilon_decay, self.epsilon_min)
-        return action
+        return action, None
 
-    def store_data(self, state, action, reward, next_state, done):
+    def store_data(self, state, action, reward, next_state, done, log_prob=None):
         state_image, context_features = state
         next_state_image, next_context_features = next_state
         state_image = np.squeeze(state_image, axis=0)
